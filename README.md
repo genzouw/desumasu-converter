@@ -13,6 +13,31 @@ npmモジュールとしても動作します。
 sudo npm install -g desumasu-conveter
 ```
 
+## Install latest version
+
+```bash
+$ git clone https://github.com/genzouw/desumasu-converter.git
+
+$ cd desumasu-conveter/
+
+$ make pack
+
+$ ls dist
+cli.js*  desumasu-converter.js*  LICENSE  package.json  README.md
+
+$ echo "今日もいい天気だった。" | dist/cli.js -k
+今日もいい天気でした。%
+```
+
+If you want to avoid typing this long command ( "node dist/cli.js" ), you can use an alias like this:
+
+```bash
+$ alias dmc="/path/to/desumasu-conveter/dist/cli.js"
+
+$ echo "今日もいい天気だった。" | dmc -k
+今日もいい天気でした。%
+```
+
 ## Usage
 
 ```
@@ -52,4 +77,3 @@ console.log(result3);
 ## Change Log
 
 - 0.1.x:first release
-
