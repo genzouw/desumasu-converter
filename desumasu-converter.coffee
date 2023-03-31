@@ -46,7 +46,7 @@ class DesumasuConverter
 			['しまいます','しまう']
 		]
 
-		@seperator='。、（）\(\)'
+		@separator='。、（）\(\)'
 
 	convert2joutai:(input,options={})->
 		options.toJotai=true
@@ -72,11 +72,11 @@ class DesumasuConverter
 
 		for i in tempDict
 			if !toJotai and i[2] then continue
-			left="(#{i[l]})([#{@seperator}])"
+			left="(#{i[l]})([#{@separator}])"
 			right="#{i[r]}$2"
 			t=t.replace(new RegExp(left,'gm'),right)
 			if checkNe
-				neLeft="(#{i[l]}ね)([#{@seperator}])"
+				neLeft="(#{i[l]}ね)([#{@separator}])"
 				rightRep=if removeNe then "" else "ね"
 				neRight="#{i[r]}#{rightRep}$2"
 				t=t.replace(new RegExp(neLeft,'gm'),neRight)
