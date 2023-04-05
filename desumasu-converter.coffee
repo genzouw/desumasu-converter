@@ -44,9 +44,12 @@ class DesumasuConverter
 			['知りました','知った']
 			['なりました','なった']
 			['しまいます','しまう']
+			['ておきましょう','ておく']
+			['のでしょうか','のだろうか']
+			['のでしょうか','のか']
 		]
 
-		@separator='。、（）\(\)'
+		@separator='。、（）\(\)？'
 
 	convert2joutai:(input,options={})->
 		options.toJotai=true

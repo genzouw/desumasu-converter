@@ -59,7 +59,7 @@ switch command
 			>cat example.txt
 			今日は晴れてます。
 			明日は曇りでしょうね。
-			
+
 			>cat example.txt | #{appName} -j
 			今日は晴れている。
 			明日は曇りだろう。
@@ -67,7 +67,7 @@ switch command
 			>cat example.txt | #{appName} -jn
 			今日は晴れている。
 			明日は曇りだろうね。
-			
+
 			>cat example.txt | #{appName} -jN
 			今日は晴れている。
 			明日は曇りでしょうね。
@@ -88,9 +88,9 @@ switch command
 		readline.on 'close',->
 			kjc=new DesumasuConverter()
 			if command=='keitai2joutai'
-				r=kjc.convert2joutai(inputLines.join("\n"),{checkNe:checkNe,removeNe:removeNe})
+				r=kjc.convert2joutai(inputLines.join("\n"),{checkNe:checkNe,removeNe:removeNe}) + "\n"
 			else
-				r=kjc.convert2keitai(inputLines.join("\n"),{checkNe:checkNe,removeNe:removeNe})
+				r=kjc.convert2keitai(inputLines.join("\n"),{checkNe:checkNe,removeNe:removeNe}) + "\n"
 
 			process.stdout.write r
 
