@@ -10,9 +10,9 @@
     "getopt": "0.1.0"
   },
   "devDependencies": {
-    "partpipe": "0.4.0",
-    "coffee-jshint": "1.1.0",
-    "coffeescript": "2.4.1"
+    "coffee-jshint": "^1.2.2",
+    "coffeescript": "2.4.1",
+    "partpipe": "0.4.0"
   },
   "tags": [],
   "author": {
