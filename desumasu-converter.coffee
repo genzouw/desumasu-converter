@@ -1,6 +1,6 @@
 class DesumasuConverter
-	constructor:->
-		@dict=[
+	constructor: ->
+		@dict = [
 			['しましょう','しよう']
 			['きましょう','こう']
 			['りましょう','ろう']
@@ -49,42 +49,42 @@ class DesumasuConverter
 			['でしょうか','だろうか']
 		]
 
-		@separator='。、（）\(\)？'
+		@separator = '。、（）\(\)？'
 
-	convert2joutai:(input,options={})->
-		options.toJotai=true
-		@convert(input,options)
+	convert2joutai: (input, options = {}) ->
+		options.toJotai = true
+		@convert input, options
 
-	convert2keitai:(input,options={})->
-		options.toJotai=false
-		@convert(input,options)
+	convert2keitai: (input, options = {}) ->
+		options.toJotai = false
+		@convert input, options
 
-	convert:(input,options={})->
-		{toJotai=true,checkNe=true,removeNe=false}=options
-		l=0
-		r=1
+	convert: (input, options = {}) ->
+		{toJotai = true, checkNe = true, removeNe = false} = options
+		l = 0
+		r = 1
 		if !toJotai
-			r=0
-			l=1
-		t=input
+			r = 0
+			l = 1
+		t = input
 
-		tempDict=Array.from @dict
-		tempDict.sort (a,b)->
-			if toJotai then  b[0].length-a[0].length
-			else  b[1].length-a[1].length
+		tempDict = Array.from @dict
+		tempDict.sort (a, b) ->
+			if toJotai then b[0].length - a[0].length
+			else b[1].length - a[1].length
 
 		for i in tempDict
 			if !toJotai and i[2] then continue
-			left="(#{i[l]})([#{@separator}])"
-			right="#{i[r]}$2"
-			t=t.replace(new RegExp(left,'gm'),right)
+			left = "(#{i[l]})([#{@separator}])"
+			right = "#{i[r]}$2"
+			t = t.replace(new RegExp(left, 'gm'), right)
 			if checkNe
-				neLeft="(#{i[l]}ね)([#{@separator}])"
-				rightRep=if removeNe then "" else "ね"
-				neRight="#{i[r]}#{rightRep}$2"
-				t=t.replace(new RegExp(neLeft,'gm'),neRight)
+				neLeft = "(#{i[l]}ね)([#{@separator}])"
+				rightRep = if removeNe then "" else "ね"
+				neRight = "#{i[r]}#{rightRep}$2"
+				t = t.replace(new RegExp(neLeft, 'gm'), neRight)
 
-		output=t
+		output = t
 		return output
 
-module.exports=DesumasuConverter
+module.exports = DesumasuConverter
